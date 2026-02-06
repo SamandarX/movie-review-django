@@ -1,0 +1,25 @@
+{% extends 'reviews/base.html' %}
+
+{% block content %}
+<h2>{{ item.title }}</h2>
+
+<p><strong>Category:</strong> {{ item.category }}</p>
+<p><strong>Release Year:</strong> {{ item.release_year }}</p>
+<p>{{ item.description }}</p>
+
+<h3>Reviews</h3>
+
+{% if item.reviews.all %}
+    <ul>
+        {% for review in item.reviews.all %}
+            <li>
+                ⭐ {{ review.rating }}<br>
+                {{ review.comment }}<br>
+                <small>By {{ review.user }}</small>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No reviews yet.</p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'reviews/base.html' %}
+
+{% block content %}
+<h2>All Movies & Books</h2>
+
+<ul>
+    {% for item in items %}
+        <li>
+            <a href="{% url 'item_detail' item.id %}">
+                {{ item.title }} ({{ item.category }})
+            </a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}
