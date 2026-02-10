@@ -108,3 +108,36 @@ body {
     color: #777;
     margin-top: 12px;
 }
+.review-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    transition: 
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+/* Hover effect */
+.review-card:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+.review-card {
+    cursor: pointer;
+}
+.review-text {
+    font-style: italic;
+    color: #555;
+    margin-top: 8px;
+}
+
+.meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    color: #777;
+    margin-top: 10px;
+}

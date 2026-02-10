@@ -1,18 +1,29 @@
+{% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Movie & Book Review Website</title>
+    <meta charset="UTF-8">
+    <title>{% block title %}ReviewHub{% endblock %}</title>
 
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'reviews/style.css' %}">
+    <link rel="stylesheet" href="{% static 'reviews/css/style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <h1>🎬📚 Movie & Book Reviews</h1>
-    <hr>
+<header class="navbar">
+    <div class="container nav-content">
+        <div class="logo">⭐ ReviewHub</div>
+        <nav>
+            <a href="{% url 'item_list' %}">Home</a>
+            <a href="{% url 'item_list' %}" class="active">Reviews</a>
+        </nav>
+    </div>
+</header>
 
-    {% block content %}
-    {% endblock %}
+<main class="container">
+    {% block content %}{% endblock %}
+</main>
 
 </body>
 </html>

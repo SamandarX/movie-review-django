@@ -1,15 +1,51 @@
 {% extends 'reviews/base.html' %}
+{% block title %}All Reviews{% endblock %}
 
 {% block content %}
-<h2>All Movies & Books</h2>
 
-<ul>
+<section class="page-header">
+    <h1>All Reviews</h1>
+    <p>Browse through authentic reviews from our community</p>
+</section>
+
+<section class="filters">
+    <input type="text" placeholder="Search reviews...">
+    <select>
+        <option>All Categories</option>
+    </select>
+    <select>
+        <option>All Ratings</option>
+    </select>
+</section>
+
+<p class="results-count">Showing {{ items|length }} reviews</p>
+
+<section class="grid">
     {% for item in items %}
-        <li>
-            <a href="{% url 'item_detail' item.id %}">
-                {{ item.title }} ({{ item.category }})
-            </a>
-        </li>
+    <div class="review-card">
+    <h3>{{ item.title }}</h3>
+
+    <span class="badge">{{ item.category }}</span>
+
+    <div class="rating">
+        ⭐ {{ item.rating }} / 5
+    </div>
+
+    <p class="description">
+        {{ item.description }}
+    </p>
+
+    <p class="review-text">
+        "{{ item.review_text }}"
+    </p>
+
+    <div class="meta">
+        <span>👤 {{ item.user.username }}</span>
+        <span>📅 {{ item.release_year }}</span>
+    </div>
+</div>
+
     {% endfor %}
-</ul>
+</section>
+
 {% endblock %}
